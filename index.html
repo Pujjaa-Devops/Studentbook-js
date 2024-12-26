@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New-Year Trip</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: url('trip-bg.jpg') no-repeat center center/cover;
+      }
+
+      .location-container {
+        width: 350px;
+        border: 2px solid #4CAF50;
+        border-radius: 10px;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .location-container .heading {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .location-container input[type="text"] {
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .location-container button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .location-container button:hover {
+        background: #45a049;
+      }
+
+      .location-container p {
+        margin-top: 15px;
+        font-size: 16px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="location-container">
+      <h1 class="heading">New-Year Trip ✈️</h1>
+      <input type="text" id="search" placeholder="Search" />
+      <button type="button" onclick="search()">Search</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      const trips = {
+        "Shimla": { location: "Himachal Pradesh", date: "2024-12-31" },
+        "Manali": { location: "Manali", date: "2024-12-30" },
+        "Goa": { location: "Goa", date: "2024-12-29" },
+        "Bali": { location: "Bali", date: "2024-12-28" },
+      };
+
+      function search() {
+        const searchInput = document.getElementById("search");
+        const query = searchInput.value;
+        const trip = trips[query];
+        const result = document.getElementById("result");
+
+        if (trip) {
+          result.innerText = `The trip to ${query} is in ${trip.location} on ${trip.date}.`;
+        } else {
+          result.innerText = `Trip not found`;
+        }
+      }
+    </script>
+  </body>
+</html>
